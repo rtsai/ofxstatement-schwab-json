@@ -6,14 +6,15 @@ and convert it to OFX format, suitable for importing into GnuCash.
 
 ## Running
 
-Use `pipenv` to run the converter:
+Use `uv` to run the converter:
 
 ```
-$ pip3 install pipenv --user (if it hasn't already been set up)
-$ cd ofxstatement-schwab-json
-$ pipenv sync --dev
-$ pipenv shell
-$ ofxstatement convert -t schwab_json Name_XXX321_Transactions_20240101-123456.json import.ofx
+$ uv run ofxstatement list-plugins
+The following plugins are available:
+
+  schwab_json      Parses Schwab JSON export of investment transactions
+
+$ uv run ofxstatement convert -t schwab_json Name_XXX321_Transactions_20240101-123456.json transactions.ofx
 ```
 
 ## Known Limitations
@@ -42,39 +43,16 @@ but at least the per-share gain calculations should be correct.
 
 ## Setting up development environment
 
-Use `pipenv` to make a clean development environment.
+To activate the virtual environment run this:
 
 ```
-$ cd ofxstatement-schwab-json
-$ pipenv sync --dev
-```
-
-This will download all the dependencies and install them into your virtual
-environment. To enter the development environment:
-
-```
-$ pipenv shell
-```
-
-Inside the `pipenv` shell:
-
-```
-$ ofxstatement list-plugins
-The following plugins are available:
-
-  schwab_json      Parses Schwab JSON export of investment transactions
-```
-
-Alternatively, single commands can be run inside the `pipenv` environment
-directly from the main shell:
-
-```
-$ pipenv run ofxstatement list-plugins
+$ uv sync
+$ source .venv/bin/activate
 ```
 
 ### Upgrading Dependencies
 
-After running `pipenv shell`, run `pipenv update` to update everything.
+Run `uv lock --upgrade` to update all dependencies.
 
 ### Testing
 
@@ -82,13 +60,13 @@ Run the following command to run the test suite, type checks, and text
 formatting (see [Makefile](Makefile) for details):
 
 ```
-$ pipenv run make all
+$ uv run make all
 ```
 
 ## Packaging
 
 ```
-$ python -m build
+$ uv build
 ```
 
 ## References

@@ -1,16 +1,19 @@
-[build-system]
-requires = ["setuptools>=61.0"]
-build-backend = "setuptools.build_meta"
-
 [project]
 name = "ofxstatement-schwab-json"
-version = "0.6.0"
-authors = [
-  { name="Ed Wagner", email="ed@edwagner.org" },
-]
+version = "0.7.0"
 description = "ofxstatement plugin for Schwab JSON exports"
+authors = [{ name = "Ed Wagner", email = "ed@edwagner.org" }]
+requires-python = ">=3.10"
 readme = "README.md"
-requires-python = ">=3.9"
+keywords = [
+    "ofx",
+    "banking",
+    "statement",
+    "plugin",
+    "ofxstatement",
+    "schwab",
+    "json",
+]
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Programming Language :: Python :: 3",
@@ -21,16 +24,40 @@ classifiers = [
     "Operating System :: OS Independent",
     "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
 ]
-keywords = ["ofx", "banking", "statement", "plugin", "ofxstatement", "schwab", "json"]
-dependencies = [
-  "ofxstatement",
-]
+dependencies = ["ofxstatement"]
 
 [project.urls]
 Homepage = "https://github.com/edwagner/ofxstatement-schwab-json/"
 
-[project.entry-points."ofxstatement"]
+[project.entry-points.ofxstatement]
 schwab_json = "ofxstatement_schwab_json.plugin:SchwabJsonPlugin"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[dependency-groups]
+dev = [
+    "mypy",
+    "pytest",
+    "black",
+    "exceptiongroup",
+    "build",
+    "tomli",
+    "pytest-cov",
+]
+
+[tool.uv]
+package = true
+default-groups = "all"
+
+[[tool.uv.index]]
+name = "pypi"
+url = "https://pypi.org/simple"
+
+[tool.uv.sources]
+ofxstatement = { git = "https://github.com/kedder/ofxstatement.git", rev = "master" }
+ofxstatement-schwab-json = { path = ".", editable = true }
 
 [tool.pytest.ini_options]
 log_cli = true
