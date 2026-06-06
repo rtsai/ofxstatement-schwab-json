@@ -10,7 +10,7 @@ coverage:
 
 .PHONY: black
 black:
-	black src tests
+	black --target-version=py314 src tests
 
 .PHONY: mypy
 mypy:
