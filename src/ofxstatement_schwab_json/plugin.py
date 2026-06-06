@@ -206,6 +206,7 @@ class SchwabJsonParser(AbstractStatementParser):
         line.trntype = "TRANSFER"
         line.security_id = details["Symbol"]
         line.units = Decimal(re.sub("[,]", "", details["Quantity"]))
+        line.trntype_detailed = "IN" if line.units >= 0 else "OUT"
         if len(details["Price"]) > 0:
             line.unit_price = Decimal(re.sub("[$,]", "", details["Price"]))
         else:
