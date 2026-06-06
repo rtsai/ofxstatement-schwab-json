@@ -114,7 +114,8 @@ class SchwabJsonParser(AbstractStatementParser):
             elif action == "Buy" or action == "Reinvest Shares":
                 self.add_buy_line(id, date, tran)
             elif len(tran["Symbol"]) > 0 and (
-                action == "Journal"
+                action == "Conversion"
+                or action == "Journal"
                 or action == "Journaled Shares"
                 or action == "Spin-off"
                 or action == "Stock Split"
@@ -218,6 +219,10 @@ class SchwabJsonParser(AbstractStatementParser):
         if details["Action"] == "Spin-off":
             LOGGER.warning(
                 f"You will probably want to allocate some cost basis for the {line.security_id} spin-off."
+            )
+        if details["Action"] == "Conversion":
+            LOGGER.warning(
+                f"You will probably want to transfer some cost basis for the {line.security_id} conversion."
             )
         if details["Action"] == "Stock Split":
             LOGGER.warning(
