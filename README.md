@@ -93,7 +93,7 @@ $ python -m build
 
 ## References
 
-* [OFX specification](https://financialdataexchange.org/common/Uploaded%20files/OFX%20files/OFX%20Banking%20Specification%20v2.3.pdf)
+* [OFX specification](docs/OFX-Banking-Specification-v2.3.pdf)
 * [GnuCash OFX code](https://github.com/Gnucash/gnucash/blob/stable/gnucash/import-export/ofx/gnc-ofx-import.cppx)
 * [libofx](https://github.com/libofx/libofx)
 
@@ -101,7 +101,7 @@ $ python -m build
 
 For easy reference, here is the structure of the most relevant parts of the OFX statement.
 This is not complete, but should give you an idea of what gets produced.
-The comments point out the corresponding sections in the [OFX specification v2.3](https://financialdataexchange.org/common/Uploaded%20files/OFX%20files/OFX%20Banking%20Specification%20v2.3.pdf).
+The comments point out the corresponding sections in the [OFX specification v2.3](docs/OFX-Banking-Specification-v2.3.pdf).
 
 ```xml
 <OFX>
