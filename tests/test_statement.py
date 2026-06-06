@@ -76,7 +76,7 @@ def test_advisor_fee(statement):
 def test_journal_security3(statement):
     line = next(x for x in statement.invest_lines if x.id == "20250602-2")
     assert line.trntype == "TRANSFER"
-    assert line.trntype_detailed is None
+    assert line.trntype_detailed == "IN"
     assert line.units == Decimal("103.26")
     assert line.security_id == "SNSXX"
     assert line.unit_price == Decimal("0")
@@ -86,7 +86,7 @@ def test_journal_security3(statement):
 def test_journal_security2(statement):
     line = next(x for x in statement.invest_lines if x.id == "20250602-1")
     assert line.trntype == "TRANSFER"
-    assert line.trntype_detailed is None
+    assert line.trntype_detailed == "OUT"
     assert line.units == Decimal("-103.26")
     assert line.security_id == "SNSXX"
     assert line.unit_price == Decimal("0")
@@ -156,7 +156,7 @@ def test_dividend4(statement):
 def test_split(statement):
     line = next(x for x in statement.invest_lines if x.id == "20241011-1")
     assert line.trntype == "TRANSFER"
-    assert line.trntype_detailed is None
+    assert line.trntype_detailed == "IN"
     assert line.security_id == "SCHG"
     assert line.units == 300
     assert line.amount == 0
@@ -196,7 +196,7 @@ def test_cash_in_lieu(statement):
 def test_spin_off(statement):
     line = next(x for x in statement.invest_lines if x.id == "20240401-1")
     assert line.trntype == "TRANSFER"
-    assert line.trntype_detailed is None
+    assert line.trntype_detailed == "IN"
     assert line.security_id == "SOLV"
     assert line.units == 123
     assert line.amount == 0
@@ -226,7 +226,7 @@ def test_sell(statement):
 def test_journal_security(statement):
     line = next(x for x in statement.invest_lines if x.id == "20240208-1")
     assert line.trntype == "TRANSFER"
-    assert line.trntype_detailed is None
+    assert line.trntype_detailed == "OUT"
     assert line.units == -6
     assert line.security_id == "SWVXX"
     assert line.unit_price == 1
@@ -256,7 +256,7 @@ def test_security_transfer_cash(statement):
 def test_security_transfer(statement):
     line = next(x for x in statement.invest_lines if x.id == "20240120-1")
     assert line.trntype == "TRANSFER"
-    assert line.trntype_detailed is None
+    assert line.trntype_detailed == "IN"
     assert line.units == 1377
     assert line.security_id == "AAPL"
     assert line.unit_price == 0
