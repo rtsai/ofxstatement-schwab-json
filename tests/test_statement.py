@@ -24,13 +24,33 @@ def statement() -> ofxstatement.statement.Statement:
 def test_parsing(statement):
     assert statement is not None
     assert len(statement.lines) == 12
-    assert len(statement.invest_lines) == 41
+    assert len(statement.invest_lines) == 43
 
 
 def test_ids(statement):
     assert statement.lines[0].id == "20250529-1"
     assert statement.invest_lines[0].id == "20230922-1"
     assert statement.invest_lines[1].id == "20230922-2"
+
+
+def test_conversion_in(statement):
+    line = next(x for x in statement.invest_lines if x.id == "20260501-2")
+    assert line.trntype == "TRANSFER"
+    assert line.trntype_detailed == "IN"
+    assert line.amount == Decimal("0")
+    assert line.security_id == "CWEN"
+    assert line.units == Decimal("1000")
+    assert line.unit_price == Decimal("0")
+
+
+def test_conversion_out(statement):
+    line = next(x for x in statement.invest_lines if x.id == "20260501-1")
+    assert line.trntype == "TRANSFER"
+    assert line.trntype_detailed == "OUT"
+    assert line.amount == Decimal("0")
+    assert line.security_id == "18539C105"
+    assert line.units == Decimal("-1000")
+    assert line.unit_price == Decimal("0")
 
 
 def test_funds_paid(statement):

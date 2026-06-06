@@ -4,6 +4,28 @@
   "TotalTransactionsAmount": "$526.12",
   "BrokerageTransactions": [
     {
+      "Date": "05/01/2026",
+      "Action": "Conversion",
+      "Symbol": "CWEN",
+      "Description": "CLEARWAY ENERGY INC CLASS C",
+      "Quantity": "1,000",
+      "Price": "",
+      "Fees & Comm": "",
+      "Amount": "",
+      "AcctgRuleCd": "1"
+    },
+    {
+      "Date": "05/01/2026",
+      "Action": "Conversion",
+      "Symbol": "18539C105",
+      "Description": "CLEARWAY ENERGY INC CLASS CLASS A",
+      "Quantity": "-1,000",
+      "Price": "",
+      "Fees & Comm": "",
+      "Amount": "",
+      "AcctgRuleCd": "1"
+    },
+    {
       "Date": "12/30/2025",
       "Action": "Funds Paid",
       "Symbol": "",
