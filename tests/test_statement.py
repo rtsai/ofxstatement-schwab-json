@@ -24,7 +24,7 @@ def statement() -> ofxstatement.statement.Statement:
 def test_parsing(statement):
     assert statement is not None
     assert len(statement.lines) == 12
-    assert len(statement.invest_lines) == 43
+    assert len(statement.invest_lines) == 45
 
 
 def test_ids(statement):
@@ -461,6 +461,22 @@ def test_buy(statement):
     assert line.amount == -100
     assert line.security_id == "SWVXX"
     assert line.unit_price == 1
+
+
+def test_wire_funds_adj(statement):
+    line = next(x for x in statement.invest_lines if x.id == "20260611-1")
+    assert line.memo == "Wire Funds Adj RETURNED WIRE"
+    assert line.trntype == "INVBANKTRAN"
+    assert line.trntype_detailed == "CREDIT"
+    assert line.amount == Decimal("412.00")
+
+
+def test_misc_credits(statement):
+    line = next(x for x in statement.invest_lines if x.id == "20260610-1")
+    assert line.memo == "Misc Credits CUST SERVICE GEST"
+    assert line.trntype == "INVBANKTRAN"
+    assert line.trntype_detailed == "CREDIT"
+    assert line.amount == Decimal("5.00")
 
 
 def test_posted_incoming_wire(statement):
