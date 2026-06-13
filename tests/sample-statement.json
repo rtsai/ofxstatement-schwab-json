@@ -482,6 +482,15 @@
   "PostedTransactions": [
     {
       "CheckNumber": null,
+      "Description": "Customer Service Gesture",
+      "Date": "06/12/2026",
+      "RunningBalance": "$39.84",
+      "Withdrawal": "",
+      "Deposit": "$4.00",
+      "Type": "CREDIT"
+    },
+    {
+      "CheckNumber": null,
       "Description": "Incoming Wire",
       "Date": "10/10/2025",
       "RunningBalance": "$5,727.13",
