@@ -4,6 +4,28 @@
   "TotalTransactionsAmount": "$526.12",
   "BrokerageTransactions": [
     {
+      "Date": "10/11/2026",
+      "Action": "Wire Funds Adj",
+      "Symbol": "",
+      "Description": "RETURNED WIRE",
+      "Quantity": "",
+      "Price": "",
+      "Fees & Comm": "",
+      "Amount": "$412.00",
+      "AcctgRuleCd": "1"
+    },
+    {
+      "Date": "10/10/2026 as of 10/09/2026",
+      "Action": "Misc Credits",
+      "Symbol": "",
+      "Description": "CUST SERVICE GEST",
+      "Quantity": "",
+      "Price": "",
+      "Fees & Comm": "",
+      "Amount": "$5.00",
+      "AcctgRuleCd": "1"
+    },
+    {
       "Date": "09/12/2026",
       "Action": "Buy to Open",
       "Symbol": "QQQ 12/01/2026 735.00 P",
