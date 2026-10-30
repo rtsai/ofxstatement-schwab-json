@@ -15,10 +15,11 @@ LOGGER = logging.getLogger(__name__)
 import json
 
 POSTED_TRANSACTION_TYPES = {
-    # Map Schwab PostedTransactions types to ofxstatement TRANSACTION_TYPES
+    # Map Schwab PostedTransactions types to ofxstatement.statement.STMTTRN_TRNTYPES
     "ATM": "ATM",
     "ATMREBATE": "CREDIT",
     "CHECK": "CHECK",
+    "CREDIT": "CREDIT",
     "DEBIT": "DEBIT",
     "DEPOSIT": "DEP",
     "INTADJUST": "INT",
